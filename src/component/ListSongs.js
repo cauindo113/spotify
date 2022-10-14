@@ -13,7 +13,7 @@ export default function ListSong() {
  }, [song])
  
   return (
-    <div className='col-span-2 overflow-y-scroll'>
+    <div className='col-span-5 sm:col-span-2 h-[300px] sm:h-auto overflow-y-scroll'>
        <table className='table-auto w-full'>
           <thead className='text-white h-12'>
               <tr>
