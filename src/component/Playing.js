@@ -20,6 +20,7 @@ export default function Playing() {
         showJumpControls={true}
         onClickNext={handleClickNext}
         onClickPrevious={handleClickPrev}
+        onEnded={handleClickNext}
          />
     </div>
   )
