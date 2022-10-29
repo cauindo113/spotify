@@ -8,6 +8,10 @@
 .rhap_time.rhap_current-time {
   color: white !important;
 }
+.animate-spin {
+  animation: spin 15s linear infinite !important;
+}
+
 ::selection {
   background-color: transparent;
   color: turquoise;
