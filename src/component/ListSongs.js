@@ -14,7 +14,7 @@ export default function ListSong() {
 
   return (
     <div className='bg-slate-800 col-span-5 sm:col-span-2 h-[400px] sm:h-[100%] mb-[6rem] sm:mb-0 overflow-y-scroll'>
-      <div className='sticky top-[0rem] h-13 bg-slate-900 p-1'>
+      <div className='sticky top-0 bottom-0 h-13 bg-slate-900 p-1'>
       <form className="flex items-center">   
     <label for="voice-search" className="sr-only">Search</label>
     <div className="relative w-full">
@@ -32,7 +32,7 @@ export default function ListSong() {
 </form>
       </div>
       <table className='table-auto w-full'>
-          <thead className='text-white sticky top-[3.1rem] h-12 bg-slate-900'>
+          <thead className='text-white sticky top-[3.1rem] h-[3rem] bg-slate-900'>
           <tr>
             <th className='w-[10%]'>#</th>
             <th className='text-left'>Title</th>
