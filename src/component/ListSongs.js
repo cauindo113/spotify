@@ -4,6 +4,7 @@ import { Songs } from '../Context'
 export default function ListSong() {
   const { DataSongs, handleSetSong, song } = useContext(Songs);
   const [idSong, setIdSong] = useState(0);
+  const [search, setSearch] = useState(null);
   const handlePlaySong = (idSong) => {
     setIdSong(idSong);
     handleSetSong(idSong);
@@ -12,16 +13,25 @@ export default function ListSong() {
     setIdSong(song.id)
   }, [song])
 
+  const bySearch = (song, search) => {
+    if (search) {
+      return song.name.toLowerCase().includes(search.toLowerCase()) || song.author.toLowerCase().includes(search.toLowerCase());
+    } else return song;
+  };
+  const filteredList = (DataSongs, search) => {
+    return DataSongs
+      .filter(DataSong => bySearch(DataSong, search));
+  };
   return (
     <div className='bg-slate-800 col-span-5 sm:col-span-2 mb-[6rem] sm:mb-0 sm:overflow-y-scroll overflow-y-visible'>
     <div className='sticky top-0 z-30 w-full block h-13 bg-slate-900 p-1'>
-      <form className="flex items-center">   
+      <form action='#' className="flex items-center">   
     <label for="voice-search" className="sr-only">Search</label>
     <div className="relative w-full">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
             <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
         </div>
-        <input type="text" id="voice-search" className="bg-slate-800 border border-gray-300 text-white text-sm block w-full pl-10 p-2.5" placeholder="Search Song..." required/>
+        <input type="text" id="voice-search" onChange={e => setSearch(e.target.value)} className="bg-slate-800 border border-gray-300 text-white text-sm block w-full pl-10 p-2.5" placeholder="Search Song..." required/>
         <button type="button" className="flex absolute inset-y-0 right-0 items-center pr-3">
             <svg aria-hidden="true" className="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd"></path></svg>
         </button>
@@ -42,20 +52,16 @@ export default function ListSong() {
           </tr>
         </thead>
         <tbody>
-          {
-            DataSongs.map((song, index) => (
-              <tr key={index}
-                className={`cursor-pointer bg-slate-800 h-12 text-gray-400 hover:bg-slate-600 ${idSong === song.id && 'text-teal-400 bg-slate-600'}`}
-                onClick={() => handlePlaySong(song.id)}>
-                <td className='text-center'>{index + 1}</td>
-                <td>{song.name}</td>
-                <td className='text-center'>{song.author}</td>
-                <td className='text-center'><a href={song.url}><i className="hover:animate-bounce fa fa-download"></i></a></td>
-              </tr>
-            ))
-          }
-
-
+        {filteredList(DataSongs, search).map((song,index) => (
+        <tr key={index}
+        className={`cursor-pointer bg-slate-800 h-12 text-gray-400 hover:bg-slate-600 ${idSong === song.id && 'text-teal-400 bg-slate-600'}`}
+        onClick={() => handlePlaySong(song.id)}>
+        <td className='text-center'>{index + 1}</td>
+        <td>{song.name}</td>
+        <td className='text-center'>{song.author}</td>
+        <td className='text-center'><a href={song.url}><i className="hover:animate-bounce fa fa-download"></i></a></td>
+      </tr>
+      ))}
         </tbody>
       </table>
     </div>
