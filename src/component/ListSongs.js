@@ -13,7 +13,7 @@ export default function ListSong() {
   }, [song])
 
   return (
-    <div className='bg-slate-800 col-span-5 sm:col-span-2 mb-[6rem] sm:mb-0'>
+    <div className='bg-slate-800 col-span-5 sm:col-span-2 mb-[6rem] sm:mb-0 sm:overflow-y-scroll overflow-y-visible'>
     <div className='sticky top-0 z-30 w-full block h-13 bg-slate-900 p-1'>
       <form className="flex items-center">   
     <label for="voice-search" className="sr-only">Search</label>
@@ -31,9 +31,9 @@ export default function ListSong() {
     </button>
 </form>
       </div>
-    <div className='h-[400px] overflow-y-scroll'>
+    <div className='sm:h-auto h-[400px] overflow-y-scroll sm:overflow-y-visible'>
       <table className='table-auto w-full'>
-          <thead className='text-white sticky top-0 bg-slate-900'>
+          <thead className='text-white sticky sm:top-[3.1rem] top-0 bg-slate-900'>
           <tr style={{height: "3rem"}}>
             <th className='w-[10%]'>#</th>
             <th className='text-left'>Title</th>
