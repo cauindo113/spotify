@@ -13,8 +13,8 @@ export default function ListSong() {
   }, [song])
 
   return (
-    <div className='bg-slate-800 col-span-5 sm:col-span-2 relative h-[400px] sm:h-[100%] mb-[6rem] sm:mb-0 overflow-y-scroll'>
-      <div className='sticky top-[6rem] bottom-[0rem] block h-13 bg-slate-900 p-1'>
+    <div className='table-auto w-full bg-slate-800 col-span-5 sm:col-span-2 relative h-[400px] sm:h-[100%] mb-[6rem] sm:mb-0 overflow-y-scroll'>
+      <div className='sticky top-0 z-30 bottom-0 w-full block h-13 bg-slate-900 p-1'>
       <form className="flex items-center">   
     <label for="voice-search" className="sr-only">Search</label>
     <div className="relative w-full">
