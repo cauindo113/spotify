@@ -14,7 +14,7 @@ export default function ListSong() {
 
   return (
     <div className='bg-slate-800 col-span-5 sm:col-span-2 h-[400px] sm:h-[100%] mb-[6rem] sm:mb-0 overflow-y-scroll'>
-      <div className='fixed right-0 left-[33.3%] h-13 bg-slate-900 p-1'>
+      <div className='sticky top-0 block h-13 bg-slate-900 p-1'>
       <form className="flex items-center">   
     <label for="voice-search" className="sr-only">Search</label>
     <div className="relative w-full">
