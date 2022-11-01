@@ -11,7 +11,7 @@ export default function DetailSong() {
           <img className='w-full h-full brightness-50 object-cover' src={song.links.images[1].url} />
        </div>
        <div className='flex justify-evenly items-center mt-10'>
-       <img className='img_author w-[70px] rounded-full m-4 absolute bottom-0 left-0 z-10' src={song.links.images[0].url} />
+       <img className='img_author w-[70px] h-[70px] rounded-full m-4 absolute bottom-0 left-0 z-10' src={song.links.images[0].url} />
         <span className='text-xl text-white absolute bottom-9 left-[7rem] z-10'>{song.author}</span>
        </div>
     </div>
