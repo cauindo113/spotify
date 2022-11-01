@@ -4,7 +4,7 @@ import { Songs } from '../Context'
 export default function DetailSong() {
   const {song} = useContext(Songs)
   return (
-    <div className='col-span-5 sm:col-span-1 relative sm:h-full h-[55vh]'>
+    <div className='col-span-5 sm:col-span-1 relative sm:h-full h-[30.5rem]'>
        <h2 className='text-cyan-500 font-bold absolute top-0 z-10 p-3'>Now playing</h2>
        <h2 className='text-neutral-200 text-2xl absolute top-0 z-10 pl-3 pt-10'>{song.name}</h2>
        <div className='w-[100%] absolute top-0'>
